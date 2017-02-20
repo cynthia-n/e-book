@@ -8,3 +8,4 @@ I hope everyone can enjoy reading.
 
 
 * [OTHER DOCUMENTS](https://github.com/cynthia-n/e-book/blob/master/other_documents/other_documents_index.md "其他文档文档")
+* [metaprogramming ruby 2 note](https://github.com/cynthia-n/e-book/blob/master/ruby/metaprogramming ruby 2.md "ruby元编程2笔记")

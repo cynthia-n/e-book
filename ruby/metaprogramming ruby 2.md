@@ -237,7 +237,36 @@ autoload :MyLibrary, 'mylibrary'
   
 *** 
 
-### 18) how objects and classes are related
+### 18) Wrap-Up：how objects and classes are related
 
 ![relation image](https://github.com/cynthia-n/e-book/raw/master/images/ruby/metaprogramming_ruby2/relation.png "how objects and classes are related")
 
+####1.class of Class must be Class itself
+Object is a class, its class must be Class.  
+This is true of all classes, meaning that the class of Class must be Class itself  
+``` BasicObject.class => Class ```  
+  
+####2.about ```Object```(almost everything is an object)
+>	``` Object.superclass => BasicObject ```  
+>  ``` BasicObject.superclass => nil ```  
+
+BasicObject, the root of the Ruby class hierarchy
+  
+  
+####3.instance variables
+ every object has its own list of instance variables, independent of other objects—even other objects of the same class  
+  
+*** 
+
+### 19) Method Lookup  
+
+to find a method, Ruby goes in the receiver’s class, and from there it climbs the ancestors chain until it finds the method  
+for example：  
+
+```
+class MyClass  	def my_method
+		'my_method()'  
+	end  endclass MySubclass < MyClass
+endobj = MySubclass.newobj.my_method() # => "my_method()"
+```  
+![method lookup image](https://github.com/cynthia-n/e-book/raw/master/images/ruby/metaprogramming_ruby2/method_lookup.png "method lookup")

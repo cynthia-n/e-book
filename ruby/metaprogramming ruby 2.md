@@ -270,3 +270,67 @@ class MyClass  	def my_method
 endobj = MySubclass.newobj.my_method() # => "my_method()"
 ```  
 ![method lookup image](https://github.com/cynthia-n/e-book/raw/master/images/ruby/metaprogramming_ruby2/method_lookup.png "method lookup")
+  
+*** 
+
+### 20) ancestors  method(查询祖先链)  
+
+> go one step to the right into the receiver’s class, and then go up the ancestors chain until you find the method. You can ask a class for its ancestors chain with the ancestors method                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+> ``` also includes modules```
+
+MySubclass.ancestors # => [MySubclass, MyClass, Object, Kernel, BasicObject]
+  
+*** 
+
+### 21) include and prepend（Modules and Lookup）
+
+prepend method：Starting from Ruby 2.0, you also have a second way to insert a module in aclass’s chain of ancestors.  
+include => ```above it```  
+prepend => ```below it```  
+
+```
+class C2
+	prepend M2endclass D2 < C2
+endD2.ancestors # => [D2, M2, C2, Object, Kernel, BasicObject]
+
+class C
+	include M1endclass D < C
+endD.ancestors # => [D, C, M1, Object, Kernel, BasicObject]
+```  
+如下所示：  
+
+```     
+	  superclass  
+         ||  
+       include  
+         ||  
+        class  
+         ||  
+obj => prepend  
+```
+![include and prepend](https://github.com/cynthia-n/e-book/raw/master/images/ruby/metaprogramming_ruby2/include_and_prepend.png "include and prepend")
+
+*** 
+
+### 22) Multiple Inclusions  
+
+a module can appear only once in the same chain of ancestors  
+
+```
+module M1
+endmodule M2
+	include M1endmodule M3
+	prepend M1
+	include M2endM3.ancestors # => [M1, M3, M2]
+```  
+
+*** 
+
+### 23)
+
+
+
+
+
+
+
